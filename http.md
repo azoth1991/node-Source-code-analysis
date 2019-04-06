@@ -33,10 +33,14 @@ const { OutgoingMessage } = require('_http_outgoing');
 ```
 
 ### _http_agent
-> 参考文章[《http.agent理解》](https://www.jianshu.com/p/cf8ce464c8a0)
-主要调用
+> 参考文章[《http.agent理解》](https://www.jianshu.com/p/cf8ce464c8a0)[《知乎》](https://www.zhihu.com/question/58996077)
 ```ecmascript 6
 const net = require('net');
 const EventEmitter = require('events');
 ```
+- http.agent 提供了管理http的创建,销毁和复用的方法,并提供了以下配置:
+- keepAlive：{Boolean} 是否开启 keepAlive，多个请求公用一个 socket connection，默认是 false。
+- maxSockets：{Number} 每台主机允许的socket的最大值，默认值为Infinity。maxFreeSockets：{Number} 处于连接池空闲状态的最大连接数， 仅当开启 keepAlive 才有效。
+
+我们首先要知道一个概念，tcp/ip请求都是基于socket实现的，socket提供了http请求创建的API。
 
